@@ -6,16 +6,9 @@ import { useForm } from 'react-hook-form';
 const AddTweet = () => {
   const { register, handleSubmit, reset } = useForm();
 
-  const onSubmit = handleSubmit(async (data) => {
-    await axios.post('/api/add-tweet', {
-      ...data,
-    });
-
-    reset();
-  });
-
+  
   return (
-    <form onSubmit={onSubmit} className='flex flex-col gap-2'>
+    <form className='flex flex-col gap-2'>
       <label>
         Message:
         <input className='text-black' type="text" {...register('message')} />
